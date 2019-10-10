@@ -1,1 +1,1 @@
-web: java -war target/CrudWeb-1.0.war
+web: java -jar target/CrudWeb.jar
