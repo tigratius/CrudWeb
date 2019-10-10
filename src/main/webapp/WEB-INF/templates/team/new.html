@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Team Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../../../css/style.css" th:href="@{/css/style.css}"/>
+</head>
+
+<body>
+
+<h1>Add New Team</h1>
+
+<form action="insert" method="post">
+
+    <table>
+        <tr>
+            <th>Name:</th>
+            <td>
+                <input type="text" name="name" value=""/>
+            </td>
+        </tr>
+        <tr>
+            <th>Users</th>
+            <td>
+                <select name="userIds" multiple>
+                    <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.getFullName()}">
+                    </option>
+                </select>
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Save"/>
+</form>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Project Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../../../css/style.css" th:href="@{/css/style.css}"/>
+</head>
+
+<body>
+
+<h1>Edit Project</h1>
+
+<form action="update" method="post">
+
+    <input type="hidden" name="id" th:value="${project.id}"/>
+
+    <table>
+        <tr>
+            <th>Name:</th>
+            <td>
+                <input type="text" name="name"
+                       th:value="${project.name}"
+                />
+            </td>
+        </tr>
+        <tr>
+            <th>Budget:</th>
+            <td>
+                <input type="text" name="budget"
+                       th:value="${project.budget}"
+                />
+            </td>
+        </tr>
+        <tr>
+            <th>Teams</th>
+            <td>
+                <select name="teamIds" multiple>
+                    <option th:each="team : ${teams}" th:value="${team.id}" th:text="${team.name}"
+                            th:selected="${#lists.contains(teamIds, team.id)}">
+                    </option>
+                </select>
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Save"/>
+</form>
+
+</body>
+
+</html>

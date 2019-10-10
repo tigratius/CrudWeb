@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>Team List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../../css/style.css" th:href="@{/css/style.css}" />
+  </head>
+
+  <body>
+
+    <h1>Team List</h1>
+
+    <div style="margin-bottom: 20px">
+        <a class="add" th:href="@{/team/new}">Add New Team</a>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>NAME</th>
+          <th>USERS</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody th:remove="all-but-first">
+        <tr th:each="team : ${teams}" th:class="${teamStat.odd}? 'odd'">
+          <td th:text="${team.name}"></td>
+          <td>
+            <span th:each="user,iterStat : ${team.users}">
+            <span th:text="${user.getFullName()}"/><th:block th:if="${!iterStat.last}">,</th:block>
+            </span>
+          </td>
+          <td><a th:href="@{/team/edit(id=${team.id})}">edit</a></td>
+          <td><a th:href="@{/team/delete(id=${team.id})}">delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <p>
+      <a href="../home.html" th:href="@{/}">Return to home</a>
+    </p>
+    
+  </body>
+  
+</html>
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Customer Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../../../css/style.css" th:href="@{/css/style.css}"/>
+</head>
+
+<body>
+
+<h1>Edit Customer</h1>
+
+<form action="update" method="post">
+
+    <input type="hidden" name="id" th:value="${customer.id}"/>
+
+    <table>
+        <tr>
+            <th>Name:</th>
+            <td>
+                <input type="text" name="name"
+                       th:value="${customer.name}"
+                />
+            </td>
+        </tr>
+        <tr>
+            <th>Projects</th>
+            <td>
+                <select name="projectIds" multiple>
+                    <option th:each="project : ${projects}" th:value="${project.id}" th:text="${project.name}"
+                            th:selected="${#lists.contains(projectIds, project.id)}">
+                    </option>
+                </select>
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Save"/>
+</form>
+
+</body>
+
+</html>

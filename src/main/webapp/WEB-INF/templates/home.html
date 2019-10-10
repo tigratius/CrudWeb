@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>CrudWeb</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="/css/style.css" th:href="@{/css/style.css}" />
+  </head>
+
+  <body>
+
+
+  <h1>CrudWeb</h1>
+
+<!--  <div>
+    <img src="/images/gtvglogo.png" alt="GTVG logo" title="GTVG logo"
+         th:src="@{/images/gtvglogo.png}" th:alt-title="1" />
+  </div>-->
+
+  <p>Please select an option</p>
+  <ol>
+    <li><a href="customer/list.html" th:href="@{/customer}">Customer List</a></li>
+    <li><a href="project/list.html" th:href="@{/project}">Project List</a></li>
+    <li><a href="team/list.html" th:href="@{/team}">Team List</a></li>
+    <li><a href="skill/list.html" th:href="@{/skill}">Skill List</a></li>
+    <li><a href="user/list.html" th:href="@{/user}">User List</a></li>
+  </ol>
+
+</body>
+  
+</html>

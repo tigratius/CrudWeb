@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Customer Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../../../css/style.css" th:href="@{/css/style.css}"/>
+</head>
+
+<body>
+
+<h1>Add New Customer</h1>
+
+<form action="insert" method="post">
+
+    <table>
+        <tr>
+            <th>Name:</th>
+            <td>
+                <input type="text" name="name" value=""/>
+            </td>
+        </tr>
+        <tr>
+            <th>Projects</th>
+            <td>
+                <select name="projectIds" multiple>
+                    <option th:each="project : ${projects}" th:value="${project.id}" th:text="${project.name}">
+                    </option>
+                </select>
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Save"/>
+</form>
+
+</body>
+
+</html>

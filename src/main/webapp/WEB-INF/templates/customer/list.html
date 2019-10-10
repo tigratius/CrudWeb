@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>Customer List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../../css/style.css" th:href="@{/css/style.css}" />
+  </head>
+
+  <body>
+
+    <h1>Customer List</h1>
+
+    <div style="margin-bottom: 20px">
+        <a class="add" th:href="@{/customer/new}">Add New Customer</a>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>NAME</th>
+          <th>PROJECTS</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody th:remove="all-but-first">
+        <tr th:each="customer : ${customers}" th:class="${customerStat.odd}? 'odd'">
+          <td th:text="${customer.name}"></td>
+          <td>
+            <span th:each="project,iterStat : ${customer.projects}">
+            <span th:text="${project.name}"/><th:block th:if="${!iterStat.last}">,</th:block>
+            </span>
+          </td>
+          <td><a th:href="@{/customer/edit(id=${customer.id})}">edit</a></td>
+          <td><a th:href="@{/customer/delete(id=${customer.id})}">delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <p>
+      <a href="../home.html" th:href="@{/}">Return to home</a>
+    </p>
+    
+  </body>
+  
+</html>
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>Project List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../../css/style.css" th:href="@{/css/style.css}" />
+  </head>
+
+  <body>
+
+    <h1>Project List</h1>
+
+    <div style="margin-bottom: 20px">
+        <a class="add" th:href="@{/project/new}">Add New Project</a>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>NAME</th>
+          <th>BUDGET</th>
+          <th>TEAMS</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody th:remove="all-but-first">
+        <tr th:each="project : ${projects}" th:class="${projectStat.odd}? 'odd'">
+          <td th:text="${project.name}"></td>
+          <td th:text="${project.budget}"></td>
+          <td>
+            <span th:each="team,iterStat : ${project.teams}">
+            <span th:text="${team.name}"/><th:block th:if="${!iterStat.last}">,</th:block>
+            </span>
+          </td>
+          <td><a th:href="@{/project/edit(id=${project.id})}">edit</a></td>
+          <td><a th:href="@{/project/delete(id=${project.id})}">delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <p>
+      <a href="../home.html" th:href="@{/}">Return to home</a>
+    </p>
+    
+  </body>
+  
+</html>
+

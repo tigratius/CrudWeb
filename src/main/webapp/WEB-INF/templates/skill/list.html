@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>Skill List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../../css/style.css" th:href="@{/css/style.css}" />
+  </head>
+
+  <body>
+
+    <h1>Skill List</h1>
+
+    <!--<div>
+      <img src="/images/gtvglogo.png" alt="GTVG logo" title="GTVG logo"
+           th:src="@{/images/gtvglogo.png}" th:alt-title="1" />
+    </div>-->
+
+    <div style="margin-bottom: 20px">
+    <a class="add" th:href="@{/skill/new}">Add New Skill</a>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>NAME</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody th:remove="all-but-first">
+        <tr th:each="skill : ${skills}" th:class="${skillStat.odd}? 'odd'">
+          <td th:text="${skill.name}"></td>
+          <td><a th:href="@{/skill/edit(id=${skill.id})}">edit</a></td>
+          <td><a th:href="@{/skill/delete(id=${skill.id})}">delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <p>
+      <a href="../home.html" th:href="@{/}">Return to home</a>
+    </p>
+    
+  </body>
+  
+</html>
+
