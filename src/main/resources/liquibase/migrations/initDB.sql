@@ -1,8 +1,6 @@
 --liquibase formatted sql
 --changeset tigratius:1
 
-USE crudweb;
-
 CREATE TABLE skills
 (
     id   INTEGER AUTO_INCREMENT PRIMARY KEY,
