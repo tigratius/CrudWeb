@@ -5,9 +5,9 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/crudweb?serverTimezone=UTC</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">Nu Pogodi 16</property>
+        <property name="hibernate.connection.url">jdbc:mysql://bda2512e8381a2:5a6470ed@us-cdbr-iron-east-05.cleardb.net/heroku_68a90538668fd87?reconnect=true</property>
+        <property name="hibernate.connection.username">bda2512e8381a2</property>
+        <property name="hibernate.connection.password">5a6470ed</property>
 
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">false</property>
