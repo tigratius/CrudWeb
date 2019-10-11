@@ -3,5 +3,5 @@ databaseChangeLog:
       file: migrations/initDB.sql
       relativeToChangelogFile: true
   - include:
-      file: migrations/populateDB.sql
+      file: migrations/populateDBforHeroku.sql
       relativeToChangelogFile: true

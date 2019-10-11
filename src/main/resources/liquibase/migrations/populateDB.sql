@@ -19,7 +19,7 @@ INSERT INTO customers (name) values ('C#ProjectCustomer');
 
 /*Populate projects*/
 INSERT INTO projects (name, budget, customer_id) values ('JavaProject', 2000000, 1);
-INSERT INTO projects (name, budget, customer_id) values ('C#Project', 1000000, 2);
+INSERT INTO projects (name, budget, customer_id) values ('C#Project', 1000000, 11);
 
 /*Populate users*/
 INSERT INTO users (first_name, last_name, specialty, team_id) values ('Alex', 'Andreev', 'Java programmer', 1);
